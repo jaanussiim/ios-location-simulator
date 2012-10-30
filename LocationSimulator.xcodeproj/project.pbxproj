@@ -10,12 +10,12 @@
 		EA41F498163FFFA800B3A95F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41F497163FFFA800B3A95F /* UIKit.framework */; };
 		EA41F49A163FFFA800B3A95F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41F499163FFFA800B3A95F /* Foundation.framework */; };
 		EA41F49C163FFFA800B3A95F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41F49B163FFFA800B3A95F /* CoreGraphics.framework */; };
-		EA41F4A2163FFFA800B3A95F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4A0163FFFA800B3A95F /* InfoPlist.strings */; };
-		EA41F4A4163FFFA800B3A95F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4A3163FFFA800B3A95F /* main.m */; };
-		EA41F4A8163FFFA800B3A95F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4A7163FFFA800B3A95F /* AppDelegate.m */; };
-		EA41F4AA163FFFA800B3A95F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4A9163FFFA800B3A95F /* Default.png */; };
-		EA41F4AC163FFFA800B3A95F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4AB163FFFA800B3A95F /* Default@2x.png */; };
-		EA41F4AE163FFFA800B3A95F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4AD163FFFA800B3A95F /* Default-568h@2x.png */; };
+		EA41F4C41640010300B3A95F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4BB1640010300B3A95F /* AppDelegate.m */; };
+		EA41F4C51640010300B3A95F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BC1640010300B3A95F /* Default-568h@2x.png */; };
+		EA41F4C61640010300B3A95F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BD1640010300B3A95F /* Default.png */; };
+		EA41F4C71640010300B3A95F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BE1640010300B3A95F /* Default@2x.png */; };
+		EA41F4C81640010300B3A95F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BF1640010300B3A95F /* InfoPlist.strings */; };
+		EA41F4CA1640010300B3A95F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4C31640010300B3A95F /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,15 +23,15 @@
 		EA41F497163FFFA800B3A95F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EA41F499163FFFA800B3A95F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EA41F49B163FFFA800B3A95F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EA41F49F163FFFA800B3A95F /* LocationSimulator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LocationSimulator-Info.plist"; sourceTree = "<group>"; };
-		EA41F4A1163FFFA800B3A95F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EA41F4A3163FFFA800B3A95F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EA41F4A5163FFFA800B3A95F /* LocationSimulator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocationSimulator-Prefix.pch"; sourceTree = "<group>"; };
-		EA41F4A6163FFFA800B3A95F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EA41F4A7163FFFA800B3A95F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EA41F4A9163FFFA800B3A95F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EA41F4AB163FFFA800B3A95F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		EA41F4AD163FFFA800B3A95F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA41F4BA1640010300B3A95F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EA41F4BB1640010300B3A95F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EA41F4BC1640010300B3A95F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EA41F4BD1640010300B3A95F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EA41F4BE1640010300B3A95F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EA41F4C01640010300B3A95F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EA41F4C11640010300B3A95F /* LocationSimulator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LocationSimulator-Info.plist"; sourceTree = "<group>"; };
+		EA41F4C21640010300B3A95F /* LocationSimulator-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocationSimulator-Prefix.pch"; sourceTree = "<group>"; };
+		EA41F4C31640010300B3A95F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +51,7 @@
 		EA41F488163FFFA800B3A95F = {
 			isa = PBXGroup;
 			children = (
+				EA41F4B91640010300B3A95F /* Sample */,
 				EA41F49D163FFFA800B3A95F /* LocationSimulator */,
 				EA41F496163FFFA800B3A95F /* Frameworks */,
 				EA41F494163FFFA800B3A95F /* Products */,
@@ -78,23 +79,30 @@
 		EA41F49D163FFFA800B3A95F /* LocationSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				EA41F4A6163FFFA800B3A95F /* AppDelegate.h */,
-				EA41F4A7163FFFA800B3A95F /* AppDelegate.m */,
-				EA41F49E163FFFA800B3A95F /* Supporting Files */,
 			);
 			path = LocationSimulator;
 			sourceTree = "<group>";
 		};
-		EA41F49E163FFFA800B3A95F /* Supporting Files */ = {
+		EA41F4B91640010300B3A95F /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				EA41F49F163FFFA800B3A95F /* LocationSimulator-Info.plist */,
-				EA41F4A0163FFFA800B3A95F /* InfoPlist.strings */,
-				EA41F4A3163FFFA800B3A95F /* main.m */,
-				EA41F4A5163FFFA800B3A95F /* LocationSimulator-Prefix.pch */,
-				EA41F4A9163FFFA800B3A95F /* Default.png */,
-				EA41F4AB163FFFA800B3A95F /* Default@2x.png */,
-				EA41F4AD163FFFA800B3A95F /* Default-568h@2x.png */,
+				EA41F4CB1640010C00B3A95F /* Supporting Files */,
+				EA41F4BA1640010300B3A95F /* AppDelegate.h */,
+				EA41F4BB1640010300B3A95F /* AppDelegate.m */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		EA41F4CB1640010C00B3A95F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA41F4BC1640010300B3A95F /* Default-568h@2x.png */,
+				EA41F4BD1640010300B3A95F /* Default.png */,
+				EA41F4BE1640010300B3A95F /* Default@2x.png */,
+				EA41F4BF1640010300B3A95F /* InfoPlist.strings */,
+				EA41F4C11640010300B3A95F /* LocationSimulator-Info.plist */,
+				EA41F4C21640010300B3A95F /* LocationSimulator-Prefix.pch */,
+				EA41F4C31640010300B3A95F /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,10 +158,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA41F4A2163FFFA800B3A95F /* InfoPlist.strings in Resources */,
-				EA41F4AA163FFFA800B3A95F /* Default.png in Resources */,
-				EA41F4AC163FFFA800B3A95F /* Default@2x.png in Resources */,
-				EA41F4AE163FFFA800B3A95F /* Default-568h@2x.png in Resources */,
+				EA41F4C51640010300B3A95F /* Default-568h@2x.png in Resources */,
+				EA41F4C61640010300B3A95F /* Default.png in Resources */,
+				EA41F4C71640010300B3A95F /* Default@2x.png in Resources */,
+				EA41F4C81640010300B3A95F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,18 +172,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA41F4A4163FFFA800B3A95F /* main.m in Sources */,
-				EA41F4A8163FFFA800B3A95F /* AppDelegate.m in Sources */,
+				EA41F4C41640010300B3A95F /* AppDelegate.m in Sources */,
+				EA41F4CA1640010300B3A95F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EA41F4A0163FFFA800B3A95F /* InfoPlist.strings */ = {
+		EA41F4BF1640010300B3A95F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EA41F4A1163FFFA800B3A95F /* en */,
+				EA41F4C01640010300B3A95F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -237,8 +245,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationSimulator/LocationSimulator-Prefix.pch";
-				INFOPLIST_FILE = "LocationSimulator/LocationSimulator-Info.plist";
+				GCC_PREFIX_HEADER = "Sample/LocationSimulator-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Sample/LocationSimulator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -248,8 +256,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationSimulator/LocationSimulator-Prefix.pch";
-				INFOPLIST_FILE = "LocationSimulator/LocationSimulator-Info.plist";
+				GCC_PREFIX_HEADER = "Sample/LocationSimulator-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Sample/LocationSimulator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +282,7 @@
 				EA41F4B3163FFFA800B3A95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
