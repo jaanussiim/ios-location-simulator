@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
+#import <CoreLocation/CoreLocation.h>
 #import "RouteInputFile.h"
 #import "RouteInputFile+Private.h"
 
 @interface RouteInputFile ()
 
 @property (nonatomic, strong) NSURL *fileURL;
+@property (nonatomic, assign) NSUInteger scanLocation;
 
 @end
 
@@ -49,10 +51,24 @@
   _trackPoints = trackPoints;
 }
 
+- (NSArray *)trackPoints {
+  return _trackPoints;
+}
+
 - (void)readComplete {
   if (self.completionBlock) {
     self.completionBlock();
   }
+}
+
+- (CLLocation *)nextLocation {
+  CLLocation *location = [self.trackPoints objectAtIndex:self.scanLocation];
+  [self setScanLocation:self.scanLocation + 1];
+  if (self.scanLocation >= [self.trackPoints count]) {
+    [self setScanLocation:0];
+  }
+
+  return location;
 }
 
 @end

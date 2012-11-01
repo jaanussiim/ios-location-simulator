@@ -18,6 +18,14 @@
 #import "JSLocationManager.h"
 #import "RouteInputFile.h"
 
+@interface JSLocationManager ()
+
+@property (nonatomic, assign) BOOL sendLocationUpdates;
+@property (nonatomic, assign) BOOL locationFeederRunning;
+@property (nonatomic, strong) CLLocation *latestLocation;
+
+@end
+
 @implementation JSLocationManager
 
 - (MKAnnotationView *)fakeUserLocationView {
@@ -33,9 +41,54 @@
 }
 
 - (void)startUpdatingLocation {
+  __block __weak JSLocationManager *weakSelf = self;
+  [self setSendLocationUpdates:YES];
   if (![self.input hasBeenRead]) {
+    [self.input setCompletionBlock:^{
+      [weakSelf runLocationFeeder];
+    }];
     [self.input read];
+  } else {
+    [self runLocationFeeder];
   }
+}
+
+- (void)runLocationFeeder {
+  if (self.locationFeederRunning) {
+    return;
+  }
+
+  [self pushNextLocation];
+  [self setLocationFeederRunning:YES];
+}
+
+- (void)pushNextLocation {
+  CLLocation *location = [self.input nextLocation];
+  [self setLatestLocation:location];
+
+  if (self.mapView) {
+    MKAnnotationView *userLocationView = [self.mapView viewForAnnotation:self.mapView.userLocation];
+    NSLog(@"%@", userLocationView);
+    [userLocationView.superview sendSubviewToBack:userLocationView];
+
+    CGRect frame = userLocationView.frame;
+    frame.origin = [self.mapView convertCoordinate:self.latestLocation.coordinate toPointToView:userLocationView.superview];
+    frame.origin.x -= 10;
+    frame.origin.y -= 10;
+    [UIView animateWithDuration:1.0 animations:^{
+      userLocationView.frame = frame;
+    }];
+
+    [self.mapView.userLocation setCoordinate:self.latestLocation.coordinate];
+  }
+
+  if (self.sendLocationUpdates && [self.delegate respondsToSelector:@selector(locationManager:didUpdateLocations:)]) {
+    [self.delegate locationManager:self didUpdateLocations:[NSArray arrayWithObject:location]];
+  }
+
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    [self pushNextLocation];
+  });
 }
 
 @end

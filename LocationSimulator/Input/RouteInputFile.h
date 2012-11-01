@@ -27,5 +27,6 @@ typedef void (^ReadCompletionBlock)();
 
 - (BOOL)hasBeenRead;
 - (void)read;
+- (CLLocation *)nextLocation;
 
 @end
