@@ -22,6 +22,7 @@
 		EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA520016430A4A00A08C44 /* RouteInputFile.m */; };
 		EABA520716430A4A00A08C44 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA520316430A4A00A08C44 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EABA520A16430AED00A08C44 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABA520916430AED00A08C44 /* MapKit.framework */; };
+		EABA5214164326D100A08C44 /* JSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA5213164326D100A08C44 /* JSLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		EABA520216430A4A00A08C44 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		EABA520316430A4A00A08C44 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		EABA520916430AED00A08C44 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EABA5212164326D100A08C44 /* JSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLocation.h; sourceTree = "<group>"; };
+		EABA5213164326D100A08C44 /* JSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 		EABA51F816430A4A00A08C44 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EABA5212164326D100A08C44 /* JSLocation.h */,
+				EABA5213164326D100A08C44 /* JSLocation.m */,
 				EABA51F916430A4A00A08C44 /* JSLocationManager.h */,
 				EABA51FA16430A4A00A08C44 /* JSLocationManager.m */,
 			);
@@ -232,6 +237,7 @@
 				EABA520516430A4A00A08C44 /* GPXInputFile.m in Sources */,
 				EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */,
 				EABA520716430A4A00A08C44 /* GDataXMLNode.m in Sources */,
+				EABA5214164326D100A08C44 /* JSLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

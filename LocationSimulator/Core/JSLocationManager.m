@@ -17,6 +17,7 @@
 #import <MapKit/MapKit.h>
 #import "JSLocationManager.h"
 #import "RouteInputFile.h"
+#import "JSLocation.h"
 
 @interface JSLocationManager ()
 
@@ -63,19 +64,18 @@
 }
 
 - (void)pushNextLocation {
-  CLLocation *location = [self.input nextLocation];
+  JSLocation *location = [self.input nextLocation];
   [self setLatestLocation:location];
 
   if (self.mapView) {
     MKAnnotationView *userLocationView = [self.mapView viewForAnnotation:self.mapView.userLocation];
-    NSLog(@"%@", userLocationView);
     [userLocationView.superview sendSubviewToBack:userLocationView];
 
     CGRect frame = userLocationView.frame;
     frame.origin = [self.mapView convertCoordinate:self.latestLocation.coordinate toPointToView:userLocationView.superview];
     frame.origin.x -= 10;
     frame.origin.y -= 10;
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:location.secondsForMove animations:^{
       userLocationView.frame = frame;
     }];
 
@@ -86,7 +86,7 @@
     [self.delegate locationManager:self didUpdateLocations:[NSArray arrayWithObject:location]];
   }
 
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, location.secondsForMove * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     [self pushNextLocation];
   });
 }

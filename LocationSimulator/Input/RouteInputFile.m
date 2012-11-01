@@ -17,6 +17,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RouteInputFile.h"
 #import "RouteInputFile+Private.h"
+#import "JSLocation.h"
 
 @interface RouteInputFile ()
 
@@ -61,8 +62,8 @@
   }
 }
 
-- (CLLocation *)nextLocation {
-  CLLocation *location = [self.trackPoints objectAtIndex:self.scanLocation];
+- (JSLocation *)nextLocation {
+  JSLocation *location = [self.trackPoints objectAtIndex:self.scanLocation];
   [self setScanLocation:self.scanLocation + 1];
   if (self.scanLocation >= [self.trackPoints count]) {
     [self setScanLocation:0];

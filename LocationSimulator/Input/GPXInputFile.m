@@ -18,6 +18,7 @@
 #import "GPXInputFile.h"
 #import "GDataXMLNode.h"
 #import "RouteInputFile+Private.h"
+#import "JSLocation.h"
 
 @implementation GPXInputFile
 
@@ -46,16 +47,43 @@
   NSArray *nodes = [[document rootElement] nodesForXPath:@"//_def_ns:gpx/_def_ns:trk/_def_ns:trkseg/_def_ns:trkpt" error:&err];
   NSLog(@"Found %d points", [nodes count]);
 
+  NSDate *lastPointTime = nil;
+
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:[nodes count]];
   for (GDataXMLElement *node in nodes) {
     double lat = [[[node attributeForName:@"lat"] stringValue] doubleValue];
     double lon = [[[node attributeForName:@"lon"] stringValue] doubleValue];
 
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+    NSArray *children = [node children];
+    GDataXMLElement *timeNode = nil;
+    for (GDataXMLElement *child in children) {
+      if ([child.name isEqualToString:@"time"]) {
+        timeNode = child;
+      }
+    }
+
+    NSString *timeString = [timeNode stringValue];
+    NSDate *pointTime = [[GPXInputFile pointTimeFormatter] dateFromString:timeString];
+
+    JSLocation *location = [[JSLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lon) altitude:0 horizontalAccuracy:10 verticalAccuracy:10 timestamp:pointTime];
+    NSTimeInterval move = lastPointTime ? [pointTime timeIntervalSinceDate:lastPointTime] : 0;
+    [location setSecondsForMove:move];
     [result addObject:location];
+
+    lastPointTime = pointTime;
   }
 
   return [NSArray arrayWithArray:result];
+}
+
+static NSDateFormatter *pointTimeFormatter;
++ (NSDateFormatter *)pointTimeFormatter {
+  if (!pointTimeFormatter) {
+    pointTimeFormatter = [[NSDateFormatter alloc] init];
+    [pointTimeFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+  }
+
+  return pointTimeFormatter;
 }
 
 @end

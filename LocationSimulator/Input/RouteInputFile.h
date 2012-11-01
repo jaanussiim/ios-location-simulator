@@ -16,6 +16,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class JSLocation;
+
 typedef void (^ReadCompletionBlock)();
 
 @interface RouteInputFile : NSObject
@@ -27,6 +29,6 @@ typedef void (^ReadCompletionBlock)();
 
 - (BOOL)hasBeenRead;
 - (void)read;
-- (CLLocation *)nextLocation;
+- (JSLocation *)nextLocation;
 
 @end
