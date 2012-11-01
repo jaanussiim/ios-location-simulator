@@ -16,6 +16,12 @@
 		EA41F4C71640010300B3A95F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BE1640010300B3A95F /* Default@2x.png */; };
 		EA41F4C81640010300B3A95F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BF1640010300B3A95F /* InfoPlist.strings */; };
 		EA41F4CA1640010300B3A95F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4C31640010300B3A95F /* main.m */; };
+		EA41F4CD164005D900B3A95F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41F4CC164005D900B3A95F /* CoreLocation.framework */; };
+		EABA520416430A4A00A08C44 /* JSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA51FA16430A4A00A08C44 /* JSLocationManager.m */; };
+		EABA520516430A4A00A08C44 /* GPXInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA51FD16430A4A00A08C44 /* GPXInputFile.m */; };
+		EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA520016430A4A00A08C44 /* RouteInputFile.m */; };
+		EABA520716430A4A00A08C44 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA520316430A4A00A08C44 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EABA520A16430AED00A08C44 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABA520916430AED00A08C44 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,17 @@
 		EA41F4C11640010300B3A95F /* LocationSimulator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LocationSimulator-Info.plist"; sourceTree = "<group>"; };
 		EA41F4C21640010300B3A95F /* LocationSimulator-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocationSimulator-Prefix.pch"; sourceTree = "<group>"; };
 		EA41F4C31640010300B3A95F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EA41F4CC164005D900B3A95F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EABA51F916430A4A00A08C44 /* JSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLocationManager.h; sourceTree = "<group>"; };
+		EABA51FA16430A4A00A08C44 /* JSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLocationManager.m; sourceTree = "<group>"; };
+		EABA51FC16430A4A00A08C44 /* GPXInputFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXInputFile.h; sourceTree = "<group>"; };
+		EABA51FD16430A4A00A08C44 /* GPXInputFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXInputFile.m; sourceTree = "<group>"; };
+		EABA51FE16430A4A00A08C44 /* RouteInputFile+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RouteInputFile+Private.h"; sourceTree = "<group>"; };
+		EABA51FF16430A4A00A08C44 /* RouteInputFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteInputFile.h; sourceTree = "<group>"; };
+		EABA520016430A4A00A08C44 /* RouteInputFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteInputFile.m; sourceTree = "<group>"; };
+		EABA520216430A4A00A08C44 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		EABA520316430A4A00A08C44 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		EABA520916430AED00A08C44 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABA520A16430AED00A08C44 /* MapKit.framework in Frameworks */,
+				EA41F4CD164005D900B3A95F /* CoreLocation.framework in Frameworks */,
 				EA41F498163FFFA800B3A95F /* UIKit.framework in Frameworks */,
 				EA41F49A163FFFA800B3A95F /* Foundation.framework in Frameworks */,
 				EA41F49C163FFFA800B3A95F /* CoreGraphics.framework in Frameworks */,
@@ -69,9 +88,11 @@
 		EA41F496163FFFA800B3A95F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EA41F497163FFFA800B3A95F /* UIKit.framework */,
-				EA41F499163FFFA800B3A95F /* Foundation.framework */,
 				EA41F49B163FFFA800B3A95F /* CoreGraphics.framework */,
+				EA41F4CC164005D900B3A95F /* CoreLocation.framework */,
+				EA41F499163FFFA800B3A95F /* Foundation.framework */,
+				EABA520916430AED00A08C44 /* MapKit.framework */,
+				EA41F497163FFFA800B3A95F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -79,6 +100,9 @@
 		EA41F49D163FFFA800B3A95F /* LocationSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				EABA51F816430A4A00A08C44 /* Core */,
+				EABA51FB16430A4A00A08C44 /* Input */,
+				EABA520116430A4A00A08C44 /* XMLSupport */,
 			);
 			path = LocationSimulator;
 			sourceTree = "<group>";
@@ -105,6 +129,36 @@
 				EA41F4C31640010300B3A95F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EABA51F816430A4A00A08C44 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EABA51F916430A4A00A08C44 /* JSLocationManager.h */,
+				EABA51FA16430A4A00A08C44 /* JSLocationManager.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EABA51FB16430A4A00A08C44 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				EABA51FC16430A4A00A08C44 /* GPXInputFile.h */,
+				EABA51FD16430A4A00A08C44 /* GPXInputFile.m */,
+				EABA51FE16430A4A00A08C44 /* RouteInputFile+Private.h */,
+				EABA51FF16430A4A00A08C44 /* RouteInputFile.h */,
+				EABA520016430A4A00A08C44 /* RouteInputFile.m */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		EABA520116430A4A00A08C44 /* XMLSupport */ = {
+			isa = PBXGroup;
+			children = (
+				EABA520216430A4A00A08C44 /* GDataXMLNode.h */,
+				EABA520316430A4A00A08C44 /* GDataXMLNode.m */,
+			);
+			path = XMLSupport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +228,10 @@
 			files = (
 				EA41F4C41640010300B3A95F /* AppDelegate.m in Sources */,
 				EA41F4CA1640010300B3A95F /* main.m in Sources */,
+				EABA520416430A4A00A08C44 /* JSLocationManager.m in Sources */,
+				EABA520516430A4A00A08C44 /* GPXInputFile.m in Sources */,
+				EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */,
+				EABA520716430A4A00A08C44 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +304,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/LocationSimulator-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/LocationSimulator-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -257,7 +317,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/LocationSimulator-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/LocationSimulator-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
