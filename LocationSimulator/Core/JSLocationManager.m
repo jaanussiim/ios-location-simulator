@@ -67,6 +67,8 @@
   JSLocation *location = [self.input nextLocation];
   [self setLatestLocation:location];
 
+  NSTimeInterval interval = location.secondsForMove / self.replaySpeed;
+
   if (self.mapView) {
     MKAnnotationView *userLocationView = [self.mapView viewForAnnotation:self.mapView.userLocation];
     [userLocationView.superview sendSubviewToBack:userLocationView];
@@ -75,7 +77,7 @@
     frame.origin = [self.mapView convertCoordinate:self.latestLocation.coordinate toPointToView:userLocationView.superview];
     frame.origin.x -= 10;
     frame.origin.y -= 10;
-    [UIView animateWithDuration:location.secondsForMove animations:^{
+    [UIView animateWithDuration:interval animations:^{
       userLocationView.frame = frame;
     }];
 
@@ -86,9 +88,13 @@
     [self.delegate locationManager:self didUpdateLocations:[NSArray arrayWithObject:location]];
   }
 
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, location.secondsForMove * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     [self pushNextLocation];
   });
+}
+
+- (void)stopUpdatingLocation {
+  [self setSendLocationUpdates:NO];
 }
 
 @end

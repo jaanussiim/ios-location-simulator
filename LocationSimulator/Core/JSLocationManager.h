@@ -27,6 +27,7 @@
 @property (nonatomic, strong) RouteInputFile *input;
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIImage *fakeUserLocationImage;
+@property (nonatomic, assign) NSInteger replaySpeed;
 
 - (MKAnnotationView *)fakeUserLocationView;
 
