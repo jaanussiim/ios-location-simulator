@@ -24,10 +24,23 @@
 @property (nonatomic, assign) BOOL sendLocationUpdates;
 @property (nonatomic, assign) BOOL locationFeederRunning;
 @property (nonatomic, strong) CLLocation *latestLocation;
+@property (nonatomic, strong) NSMutableArray *userMonitoredRegions;
+@property (nonatomic, strong) NSMutableArray *userInsideRegions;
 
 @end
 
 @implementation JSLocationManager
+
+- (id)init {
+  self = [super init];
+
+  if (self) {
+    [self setUserMonitoredRegions:[NSMutableArray array]];
+    [self setUserInsideRegions:[NSMutableArray array]];
+  }
+
+  return self;
+}
 
 - (MKAnnotationView *)fakeUserLocationView {
   if (!self.mapView) {
@@ -88,13 +101,86 @@
     [self.delegate locationManager:self didUpdateLocations:[NSArray arrayWithObject:location]];
   }
 
+  NSArray *regionsEntered = [self regionsEnteredWithLocation:location];
+  [self.userInsideRegions addObjectsFromArray:regionsEntered];
+
+  if ([self.delegate respondsToSelector:@selector(locationManager:didEnterRegion:)]) {
+    for (CLRegion *region in regionsEntered) {
+      [self.delegate locationManager:self didEnterRegion:region];
+    }
+  }
+
+  NSArray *regionsExited = [self regionsExitedWithLocation:location];
+  [self.userInsideRegions removeObjectsInArray:regionsExited];
+
+  if ([self.delegate respondsToSelector:@selector(locationManager:didExitRegion:)]) {
+    for (CLRegion *region in regionsExited) {
+      [self.delegate locationManager:self didExitRegion:region];
+    }
+  }
+
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     [self pushNextLocation];
   });
 }
 
+- (NSArray *)regionsExitedWithLocation:(JSLocation *)location {
+  NSMutableArray *exited = [NSMutableArray array];
+  for (CLRegion *region in self.userInsideRegions) {
+    if ([region containsCoordinate:location.coordinate]) {
+      continue;
+    }
+
+    [exited addObject:region];
+  }
+
+  return [NSArray arrayWithArray:exited];
+}
+
+- (NSArray *)regionsEnteredWithLocation:(JSLocation *)location {
+  NSMutableArray *entered = [NSMutableArray array];
+  for (CLRegion *region in self.userMonitoredRegions) {
+    if (![region containsCoordinate:location.coordinate]) {
+      continue;
+    }
+
+    if ([self.userInsideRegions containsObject:region]) {
+      continue;
+    }
+
+    [entered addObject:region];
+  }
+
+  return [NSArray arrayWithArray:entered];
+}
+
 - (void)stopUpdatingLocation {
   [self setSendLocationUpdates:NO];
+}
+
+- (void)startMonitoringForRegion:(CLRegion *)region desiredAccuracy:(CLLocationAccuracy)accuracy {
+  [self startMonitoringForRegion:region];
+}
+
+- (void)startMonitoringForRegion:(CLRegion *)region {
+  [self.userMonitoredRegions addObject:region];
+
+  if ([region containsCoordinate:self.latestLocation.coordinate]) {
+    [self.userInsideRegions addObject:region];
+  }
+
+  if ([self.delegate respondsToSelector:@selector(locationManager:didStartMonitoringForRegion:)]) {
+    [self.delegate locationManager:self didStartMonitoringForRegion:region];
+  }
+}
+
+- (void)stopMonitoringForRegion:(CLRegion *)region {
+  [self.userMonitoredRegions removeObject:region];
+  [self.userInsideRegions removeObject:region];
+}
+
+- (NSSet *)monitoredRegions {
+  return [NSSet setWithArray:self.userMonitoredRegions];
 }
 
 @end
