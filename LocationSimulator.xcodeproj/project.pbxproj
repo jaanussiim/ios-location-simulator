@@ -17,6 +17,7 @@
 		EA41F4C81640010300B3A95F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA41F4BF1640010300B3A95F /* InfoPlist.strings */; };
 		EA41F4CA1640010300B3A95F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA41F4C31640010300B3A95F /* main.m */; };
 		EA41F4CD164005D900B3A95F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41F4CC164005D900B3A95F /* CoreLocation.framework */; };
+		EA4AEC80164995CE008E487C /* UserHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4AEC7F164995CE008E487C /* UserHeadingView.m */; };
 		EABA520416430A4A00A08C44 /* JSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA51FA16430A4A00A08C44 /* JSLocationManager.m */; };
 		EABA520516430A4A00A08C44 /* GPXInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA51FD16430A4A00A08C44 /* GPXInputFile.m */; };
 		EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA520016430A4A00A08C44 /* RouteInputFile.m */; };
@@ -40,6 +41,8 @@
 		EA41F4C21640010300B3A95F /* LocationSimulator-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LocationSimulator-Prefix.pch"; sourceTree = "<group>"; };
 		EA41F4C31640010300B3A95F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA41F4CC164005D900B3A95F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EA4AEC7E164995CE008E487C /* UserHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeadingView.h; sourceTree = "<group>"; };
+		EA4AEC7F164995CE008E487C /* UserHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeadingView.m; sourceTree = "<group>"; };
 		EABA51F916430A4A00A08C44 /* JSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLocationManager.h; sourceTree = "<group>"; };
 		EABA51FA16430A4A00A08C44 /* JSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLocationManager.m; sourceTree = "<group>"; };
 		EABA51FC16430A4A00A08C44 /* GPXInputFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXInputFile.h; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			children = (
 				EABA51F816430A4A00A08C44 /* Core */,
 				EABA51FB16430A4A00A08C44 /* Input */,
+				EA4AEC7D164995CE008E487C /* UI */,
 				EABA520116430A4A00A08C44 /* XMLSupport */,
 			);
 			path = LocationSimulator;
@@ -132,6 +136,15 @@
 				EA41F4C31640010300B3A95F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA4AEC7D164995CE008E487C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EA4AEC7E164995CE008E487C /* UserHeadingView.h */,
+				EA4AEC7F164995CE008E487C /* UserHeadingView.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		EABA51F816430A4A00A08C44 /* Core */ = {
@@ -238,6 +251,7 @@
 				EABA520616430A4A00A08C44 /* RouteInputFile.m in Sources */,
 				EABA520716430A4A00A08C44 /* GDataXMLNode.m in Sources */,
 				EABA5214164326D100A08C44 /* JSLocation.m in Sources */,
+				EA4AEC80164995CE008E487C /* UserHeadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

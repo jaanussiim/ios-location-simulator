@@ -18,6 +18,7 @@
 #import "JSLocationManager.h"
 #import "RouteInputFile.h"
 #import "JSLocation.h"
+#import "UserHeadingView.h"
 
 @interface JSLocationManager ()
 
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) CLLocation *latestLocation;
 @property (nonatomic, strong) NSMutableArray *userMonitoredRegions;
 @property (nonatomic, strong) NSMutableArray *userInsideRegions;
+@property (nonatomic, strong) UserHeadingView *headingView;
 
 @end
 
@@ -49,8 +51,16 @@
 
   [self.mapView.userLocation setCoordinate:self.location.coordinate];
   MKAnnotationView *userLocationView = [[MKAnnotationView alloc] initWithAnnotation:self.mapView.userLocation reuseIdentifier:nil];
-  [userLocationView addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TrackingDot.png"]]];
-  userLocationView.centerOffset = CGPointMake(-10, -10);
+  UIImageView *imageView = [[UIImageView alloc] initWithImage:self.fakeUserLocationImage];
+  [userLocationView addSubview:imageView];
+
+  CGSize imageSize = imageView.frame.size;
+  CGSize arrowViewSize = CGSizeMake(imageSize.width + 4, imageSize.height + 4);
+
+  UserHeadingView *headingView = [[UserHeadingView alloc] initWithFrame:CGRectMake(-2, -2, arrowViewSize.width, arrowViewSize.height)];
+  [userLocationView insertSubview:headingView belowSubview:imageView];
+  [self setHeadingView:headingView];
+  userLocationView.centerOffset = CGPointMake(-imageSize.width / 2, -imageSize.height / 2);
   return userLocationView;
 }
 
@@ -85,6 +95,9 @@
   if (self.mapView) {
     MKAnnotationView *userLocationView = [self.mapView viewForAnnotation:self.mapView.userLocation];
     [userLocationView.superview sendSubviewToBack:userLocationView];
+
+    [self.headingView setHeading:location.course];
+    [self.headingView setNeedsDisplay];
 
     CGRect frame = userLocationView.frame;
     frame.origin = [self.mapView convertCoordinate:self.latestLocation.coordinate toPointToView:userLocationView.superview];

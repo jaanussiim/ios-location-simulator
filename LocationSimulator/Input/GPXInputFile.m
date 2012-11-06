@@ -55,17 +55,17 @@
     double lon = [[[node attributeForName:@"lon"] stringValue] doubleValue];
 
     NSArray *children = [node children];
-    GDataXMLElement *timeNode = nil;
-    for (GDataXMLElement *child in children) {
-      if ([child.name isEqualToString:@"time"]) {
-        timeNode = child;
-      }
-    }
+    GDataXMLElement *timeNode = [self findNodeNamed:@"time" nodes:children];
+    GDataXMLElement *speedNode = [self findNodeNamed:@"gpxtpx:speed" nodes:children];
+    GDataXMLElement *courseNode = [self findNodeNamed:@"gpxtpx:course" nodes:children];
 
     NSString *timeString = [timeNode stringValue];
     NSDate *pointTime = [[GPXInputFile pointTimeFormatter] dateFromString:timeString];
 
-    JSLocation *location = [[JSLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lon) altitude:0 horizontalAccuracy:10 verticalAccuracy:10 timestamp:pointTime];
+    CLLocationDirection speed = speedNode ? [speedNode.stringValue doubleValue] : -1;
+    CLLocationDirection course = courseNode ? [courseNode.stringValue doubleValue] : -1;
+
+    JSLocation *location = [[JSLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lon) altitude:0 horizontalAccuracy:10 verticalAccuracy:10 course:course speed:speed timestamp:pointTime];
     NSTimeInterval move = lastPointTime ? [pointTime timeIntervalSinceDate:lastPointTime] : 0;
     [location setSecondsForMove:move];
     [result addObject:location];
@@ -74,6 +74,23 @@
   }
 
   return [NSArray arrayWithArray:result];
+}
+
+- (GDataXMLElement *)findNodeNamed:(NSString *)nodeName nodes:(NSArray *)nodes {
+  for (GDataXMLElement *node in nodes) {
+    GDataXMLElement *found = nil;
+    if ([node.name isEqualToString:nodeName]) {
+      found = node;
+    } else if ([node children]) {
+      found = [self findNodeNamed:nodeName nodes:[node children]];
+    }
+
+    if (found) {
+      return found;
+    }
+  }
+
+  return nil;
 }
 
 static NSDateFormatter *pointTimeFormatter;
