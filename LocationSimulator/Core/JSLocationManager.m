@@ -196,4 +196,8 @@
   return [NSSet setWithArray:self.userMonitoredRegions];
 }
 
+- (CLLocation *)location {
+  return self.latestLocation;
+}
+
 @end
